@@ -1,24 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import LoginForm from '../forms/LoginForm';
 import {login} from '../../actions/auth.js'
+import {Header} from 'semantic-ui-react'
+import './LoginPage.css'
 
 
 class LoginPage extends React.Component{
-submit = (data) => this.props.login(data).then(() => this.props.history.push('/dashboard'))
+submit = (data) => this.props.login(data).then(() => this.props.history.push('/'))
 
 
   render(){
     return(
-      <div>
-      <h1>Login Page</h1>
-      <LoginForm submit={this.submit} />
-      <hr/>
-      <Link to="/forgot_password">Forgot Password?</Link>
-      </div>
+      <div className="form-holder" style={{ display: 'flex', flexDirection: 'column', alignItems: "center", height: '90vh', marginTop: '10vh'}}>
+      <Header textAlign="left" size='huge'> Please Sign in </Header>
 
+
+      <LoginForm submit={this.submit} />
+
+
+</div>
     )
   }
 }

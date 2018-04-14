@@ -27,7 +27,8 @@ class NewBookPage extends React.Component {
 
   render() {
     return (
-      <Segment>
+
+      <Segment style={{width: '80%', marginTop: '7.5em', marginLeft: '10%'}}>
         <h1>Add new book to your collection</h1>
         <SearchBookForm onBookSelect={this.onBookSelect} />
 
@@ -35,6 +36,7 @@ class NewBookPage extends React.Component {
           <BookForm submit={this.addBook} book={this.state.book} />
         )}
       </Segment>
+
     );
   }
 }

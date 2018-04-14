@@ -1,0 +1,37 @@
+@media (min-height: 320px) {
+#root > div > div:nth-child(2) > div.ui.inverted.vertical.segment.footer { /* Increased specificity for SO snippet priority */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+  }
+}
+#root > div > div.ui.large.inverted.menu > div > div.right.item > a:hover{
+  background: none;
+  color: white;
+}
+#root > div > div.ui.large.inverted.menu > div > div.right.item > a{
+  transition: .5s !important;
+}
+#root > div > div.ui.large.inverted.menu{
+  /* margin: 0 !important; */
+  /* paddingBottom: 2em; */
+}
+
+#root > div > div:nth-child(2) > div.ui.container > div:nth-child(1) > div > button > a:hover{
+  background: none;
+}
+
+#root > div > div:nth-child(1) > div.ui.container > div:nth-child(1) > div > button.active{
+  box-shadow: 0 0 0 3px inset!important;
+/* color: #1a69a4!important; */
+}
+#root > div > div:nth-child(1) > div.ui.container > div:nth-child(1) > div > button{
+  /* box-shadow: none !important; */
+  -webkit-box-shadow: 0 8px 6px -6px !important;
+       -moz-box-shadow: 0 8px 6px -6px ;
+            box-shadow: 0 8px 6px -6px ;
+
+  color: none !important;
+}
+/* #root > div > div:nth-child(1) > div.ui.container > div:nth-child(1) > div > button.ui.violet.basic.button */

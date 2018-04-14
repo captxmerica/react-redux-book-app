@@ -1,7 +1,9 @@
 import React from 'react';
-import {Form, Button, Message} from 'semantic-ui-react';
+import {Form, Button, Message, Input, Checkbox} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Validator from 'validator';
+import {Link} from 'react-router-dom';
+
 import InlineError from '../messages/inlineerror'
 
 class LoginForm extends React.Component{
@@ -37,35 +39,47 @@ validate = data =>{
   render(){
     const {data, errors, loading} = this.state
     return(
-      <Form onSubmit={this.onSubmit} loading={loading}>
+
+      <Form onSubmit={this.onSubmit.bind(this)} loading={loading} >
       { errors.global && ( <Message negative>
       <Message.Header>Something went wrong </Message.Header>
       <p>{errors.global}</p>
     </Message>)}
       <Form.Field error={!!errors.email}>
-      <label htmlFor="email">Email</label>
-      <input type="email"
+
+      <Input type="email"
        id="email"
        name="email"
-       placeholder="example@gmail.com"
+       placeholder="Email address"
       value={data.email}
+      icon='user'
+      iconPosition='left'
       onChange={this.onChange}
         />
           {errors.email && <InlineError text={errors.email} />}
       </Form.Field>
       <Form.Field error={!!errors.password}>
-      <label htmlFor="password">Password</label>
-      <input
+
+      <Input
       type="password"
       id="password"
       name="password"
-      placeholder="*********"
+      icon='lock'
+      iconPosition='left'
+      placeholder="Password"
       value={data.password}
       onChange={this.onChange}
         />
         {errors.password && <InlineError text={errors.password} />}
       </Form.Field>
-      <Button primary>Login</Button>
+      <Form.Field>
+      <Checkbox label='Remember me'/>
+      </Form.Field>
+      <Form.Field>
+      <Button fluid color="violet" style={{marginRight: '2em'}}>Login</Button>
+
+      </Form.Field>
+      <Link style={{alignSelf: 'center'}} to="/forgot_password">Forgot Password?</Link>
       </Form>
     )
   }

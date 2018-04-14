@@ -1,0 +1,40 @@
+/* .card-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+.flex-card{
+  /* height: 40vh; */
+  /* font-size: 1.23em;
+  padding: 4px */
+    background: rgba(0,0,0,.05);
+}
+.cardimg {
+  margin: 5px;
+
+}
+/* .cta{
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+} */
+.bodycount {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 300vh;
+ background-size: cover;
+ z-index: -1;
+ background-color: #300032;
+
+}
+#root > div > div:nth-child(2) > div.ui.container{
+  background: #300032;
+  width: 100%;
+  padding: 0 5%;
+
+}

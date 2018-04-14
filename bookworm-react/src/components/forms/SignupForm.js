@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, Button } from "semantic-ui-react";
+import {Form, Button, Message, Input} from 'semantic-ui-react';
 import isEmail from "validator/lib/isEmail";
 import InlineError from "../messages/inlineerror";
 
@@ -47,33 +47,42 @@ class SignupForm extends React.Component {
     const { data, errors, loading } = this.state;
 
     return (
-      <Form onSubmit={this.onSubmit} loading={loading}>
-        <Form.Field error={!!errors.email}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email@email.com"
-            value={data.email}
-            onChange={this.onChange}
-          />
+      <Form style={{width: "60vh"}} onSubmit={this.onSubmit} loading={loading} >
+      { errors.global && ( <Message negative>
+      <Message.Header>Something went wrong </Message.Header>
+      <p>{errors.global}</p>
+    </Message>)}
+      <Form.Field error={!!errors.email}>
+
+      <Input type="email"
+       id="email"
+       name="email"
+       placeholder="Email address"
+      value={data.email}
+      icon='user'
+      iconPosition='left'
+      onChange={this.onChange}
+        />
           {errors.email && <InlineError text={errors.email} />}
-        </Form.Field>
+      </Form.Field>
+      <Form.Field error={!!errors.password}>
 
-        <Form.Field error={!!errors.password}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={data.password}
-            onChange={this.onChange}
-          />
-          {errors.password && <InlineError text={errors.password} />}
-        </Form.Field>
+      <Input
+      type="password"
+      id="password"
+      name="password"
+      icon='lock'
+      iconPosition='left'
+      placeholder="Password"
+      value={data.password}
+      onChange={this.onChange}
+        />
+        {errors.password && <InlineError text={errors.password} />}
+      </Form.Field>
+      <Form.Field>
+      <Button fluid color="violet" style={{marginRight: '2em'}}>Create Account</Button>
 
-        <Button primary>Sign Up</Button>
+      </Form.Field>
       </Form>
     );
   }

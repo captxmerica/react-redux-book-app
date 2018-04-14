@@ -119,7 +119,7 @@ class BookForm extends React.Component {
                     type="text"
                     id="pages"
                     name="pages"
-                    value={data.pages !== undefined ? data.pages : "Loading..."}
+                    value={data.pages !== undefined || NaN ? data.pages : "Loading..."}
                     onChange={this.onChangeNumber}
                   />
                   {errors.pages && <InlineError text={errors.pages} />}
@@ -137,7 +137,7 @@ class BookForm extends React.Component {
             </Grid.Row>
 
             <Grid.Row>
-              <Button primary>Save</Button>
+              <Button primary style={{marginLeft: '1em'}}>Save</Button>
             </Grid.Row>
           </Grid>
         </Form>

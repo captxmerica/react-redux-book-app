@@ -11,6 +11,7 @@ class SearchBookForm extends React.Component {
     books: {}
   };
 
+
   onSearchChange = (e, data) => {
     clearTimeout(this.timer);
     this.setState({
@@ -20,15 +21,22 @@ class SearchBookForm extends React.Component {
   };
 
   onChange = (e, data) => {
-    this.setState({ query: data.value });
+    // console.log(e.target.value)
+    this.setState({ query: data.value});
     this.props.onBookSelect(this.state.books[data.value]);
   };
+  // onChange = e =>
+  //   this.setState({
+  //     ...this.state,
+  //     query: { ...this.state.data, [e.target.name]: e.target.value }
+  //   });
+
 
   fetchOptions = () => {
     if (!this.state.query) return;
     this.setState({ loading: true });
     axios
-      .get(`/api/books/search?q=${this.state.query}`)
+      .get(`/api/books/search?q=${this.state.query.searchQuery}`)
       .then(res => res.data.books)
       .then(books => {
         const options = [];
@@ -52,7 +60,7 @@ class SearchBookForm extends React.Component {
           search
           fluid
           placeholder="Search for a book by title"
-          value={this.state.query}
+          // value={this.state.query}
           onSearchChange={this.onSearchChange}
           options={this.state.options}
           loading={this.state.loading}

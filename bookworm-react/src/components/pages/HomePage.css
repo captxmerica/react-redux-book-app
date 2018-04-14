@@ -1,0 +1,53 @@
+.hero {
+	position: relative;
+	justify-content: center;
+	text-align: center;
+	min-height: 100vh;
+	color: white;
+  z-index: 0;
+
+}
+
+ .background-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	z-index: -1;
+	background-color: #80a3db;
+
+}
+
+
+.hero-content-area {
+	opacity: 1;
+	margin-top: 200px;
+	/* animation: 1.5s slidefade 1s forwards; */
+  z-index: 1;
+  background: none;
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin-top: 0vh;
+	}
+}
+
+#root > div > div:nth-child(2) > div > div.hero > div.ui.vertical.center.aligned.segment.hero-content-area > div > h1{
+	opacity: 0;
+		animation: 1.5s slidefade 1s forwards;
+}
+
+@keyframes slideup {
+	100% {
+
+		margin-top: 0;
+	}
+}
+#root > div > div:nth-child(2) > div > div.hero > div.ui.vertical.center.aligned.segment.hero-content-area > div > .lefty{
+	margin-top: 25em;
+		animation: 1.5s slideup 1.5s forwards;
+}
